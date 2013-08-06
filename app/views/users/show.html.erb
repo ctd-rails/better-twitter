@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Profile pic:</strong>
+  <%= @user.profile_pic %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<!-- A list of tweets from users that are being followed by this user -->
+
+<!-- A list of this user's followers -->
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+
+
+
+
+
+
+

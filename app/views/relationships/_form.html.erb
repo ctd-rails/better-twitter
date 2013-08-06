@@ -1,0 +1,25 @@
+<%= form_for(@relationship) do |f| %>
+  <% if @relationship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this relationship from being saved:</h2>
+
+      <ul>
+      <% @relationship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :followed_user_id %><br>
+    <%= f.select :followed_user_id, options_from_collection_for_select(User.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :following_user_id %><br>
+    <%= f.select :following_user_id, options_from_collection_for_select(User.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
