@@ -1,32 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Profile pic:</strong>
-  <%= @user.profile_pic %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p id="notice"><%= notice %></p>
 
 <!-- A list of tweets from users that are being followed by this user -->
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h2><%= @user.name %>'s stream</h2>
+    </div>
+  </div>
+<% @user.stream.each do |tweet| %>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <div class="panel">
+        <h4 class="panel-heading">
+          <%= tweet.user.name %>
+        </h3>
+        <%= tweet.contents %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <!-- A list of this user's followers -->
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
 
+</div>
 
 
 
